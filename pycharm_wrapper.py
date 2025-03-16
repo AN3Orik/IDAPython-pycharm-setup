@@ -20,8 +20,9 @@ parser = argparse.ArgumentParser(description='Execute a file inside a running ip
 parser.add_argument('path', type=str, help='path to the file being executed')
 parser.add_argument('rest', nargs=argparse.REMAINDER)
 
-args = parser.parse_args()
+args, unknown_args = parser.parse_known_args()
 
+print(f'Ignored unknown_args: {unknown_args}')
 
 def escape_string(txt):
     """Poor man's escaping"""
